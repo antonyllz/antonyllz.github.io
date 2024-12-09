@@ -3,7 +3,19 @@
     padding: 0;
     box-sizing: border-box;
 }
-
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    margin: 0;
+}
+main {
+    flex: 1;
+}
+footer {
+    text-align: center;
+    padding: 10px;
+}
 body {
     font-family: Arial, sans-serif;
     background-color: #ffffff;
@@ -93,7 +105,7 @@ nav a {
     color: #EEEEEE;
     text-decoration: none;
 }
-li {
+.topics {
     padding: 10px;
 }
 .posts {
