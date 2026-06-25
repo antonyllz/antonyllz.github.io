@@ -4,16 +4,26 @@ const container = {
   hidden: { opacity: 0 },
   visible: {
     opacity: 1,
-    transition: { staggerChildren: 0.12, delayChildren: 0.4 },
+    transition: { staggerChildren: 0.18, delayChildren: 0.2 },
   },
 }
 
 const item = {
-  hidden: { opacity: 0, y: 32 },
+  hidden: { opacity: 0, y: 24 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { duration: 0.65, ease: [0.22, 1, 0.36, 1] },
+  },
+}
+
+const nameItem = {
+  hidden: { opacity: 0, y: 36, scale: 0.97 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: { duration: 0.75, ease: [0.22, 1, 0.36, 1] },
   },
 }
 
@@ -43,95 +53,82 @@ function XIcon() {
 
 export default function Hero() {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Grid */}
-      <div className="absolute inset-0 bg-grid" />
-
-      {/* Radial fade overlay */}
-      <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 80% 60% at 50% 120%, transparent, #04040c)' }} />
-
-      {/* Orb — top left */}
-      <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] rounded-full bg-cyan-500/8 blur-[100px] animate-float-slow pointer-events-none" />
-      {/* Orb — bottom right */}
-      <div className="absolute bottom-0 -right-32 w-[400px] h-[400px] rounded-full bg-violet-600/8 blur-[80px] animate-float pointer-events-none" />
-
+    <section
+      id="home"
+      className="min-h-screen flex items-center justify-center px-6"
+      style={{ background: 'linear-gradient(160deg, #eff6ff 0%, #ffffff 55%, #f0f9ff 100%)' }}
+    >
       <motion.div
         variants={container}
         initial="hidden"
         animate="visible"
-        className="relative z-10 text-center px-6 max-w-4xl mx-auto"
+        className="max-w-3xl w-full"
       >
-        <motion.p variants={item} className="font-mono text-[#00cfff] text-xs tracking-[0.3em] uppercase mb-6">
-          Hello, world — I&apos;m
+        {/* Greeting line */}
+        <motion.p
+          variants={item}
+          className="text-slate-400 text-xl md:text-2xl font-light mb-2"
+        >
+          Hello, I&apos;m
         </motion.p>
 
-        <motion.h1 variants={item} className="text-6xl md:text-8xl font-bold tracking-tight mb-4 leading-none">
-          <span className="text-gradient">Antony Araújo</span>
+        {/* Name */}
+        <motion.h1
+          variants={nameItem}
+          className="text-5xl md:text-7xl font-bold text-slate-900 leading-tight mb-6"
+        >
+          Antony Araújo
+          <span className="text-blue-600">.</span>
         </motion.h1>
 
-        <motion.div variants={item} className="flex items-center justify-center gap-3 mb-3">
-          <div className="h-px w-8 bg-[#00cfff]/40" />
-          <p className="text-xl md:text-2xl text-slate-300 font-light tracking-wide">
-            Transmission Specialist
-          </p>
-          <div className="h-px w-8 bg-[#00cfff]/40" />
-        </motion.div>
-
-        <motion.p variants={item} className="font-mono text-slate-500 text-sm tracking-widest mb-12">
-          DWDM · Optical Networks · Fiber Infrastructure
+        {/* Role */}
+        <motion.p
+          variants={item}
+          className="text-lg md:text-xl text-slate-500 font-light mb-3 max-w-xl leading-relaxed"
+        >
+          Transmission Specialist & Network Engineer working with
+          DWDM optical networks at major data centers across São Paulo.
         </motion.p>
 
-        <motion.div variants={item} className="flex flex-wrap gap-4 justify-center mb-14">
-          <a
-            href="#gallery"
-            onClick={(e) => {
-              e.preventDefault()
-              document.querySelector('#gallery')?.scrollIntoView({ behavior: 'smooth' })
-            }}
-            className="group px-7 py-3 bg-[#00cfff] text-black font-semibold rounded-lg hover:bg-cyan-300 transition-all duration-200 shadow-lg shadow-cyan-500/20"
-          >
-            View Field Work
-          </a>
-          <a
-            href="#about"
-            onClick={(e) => {
-              e.preventDefault()
-              document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' })
-            }}
-            className="px-7 py-3 border border-slate-700 text-slate-300 rounded-lg hover:border-[#00cfff]/40 hover:text-white hover:bg-white/5 transition-all duration-200"
-          >
-            About Me
-          </a>
+        {/* Tags */}
+        <motion.div variants={item} className="flex flex-wrap gap-2 mb-10">
+          {['DWDM', 'Optical Transmission', 'NOC', 'IP'].map(t => (
+            <span key={t} className="text-xs font-medium px-3 py-1 rounded-full bg-blue-50 text-blue-700 border border-blue-100">
+              {t}
+            </span>
+          ))}
         </motion.div>
 
-        {/* Social icons */}
-        <motion.div variants={item} className="flex gap-5 justify-center">
+        {/* CTAs */}
+        <motion.div variants={item} className="flex flex-wrap gap-3 mb-12">
+          <button
+            onClick={() => document.querySelector('#fieldwork')?.scrollIntoView({ behavior: 'smooth' })}
+            className="px-6 py-3 bg-blue-600 text-white font-semibold rounded-xl hover:bg-blue-700 transition-colors shadow-md shadow-blue-200"
+          >
+            See my work
+          </button>
+          <button
+            onClick={() => document.querySelector('#about')?.scrollIntoView({ behavior: 'smooth' })}
+            className="px-6 py-3 bg-white text-slate-700 font-semibold rounded-xl border border-slate-200 hover:border-blue-300 hover:text-blue-600 transition-colors"
+          >
+            About me
+          </button>
+        </motion.div>
+
+        {/* Social */}
+        <motion.div variants={item} className="flex gap-4">
           {[
             { href: 'https://github.com/antonyllz', icon: <GitHubIcon />, label: 'GitHub' },
             { href: 'https://www.linkedin.com/in/antonyqny/', icon: <LinkedInIcon />, label: 'LinkedIn' },
             { href: 'https://x.com/anthonyllz', icon: <XIcon />, label: 'X' },
           ].map(({ href, icon, label }) => (
-            <a
-              key={label}
-              href={href}
-              target="_blank"
-              rel="noopener noreferrer"
-              aria-label={label}
-              className="w-10 h-10 flex items-center justify-center rounded-lg border border-slate-800 text-slate-500 hover:text-white hover:border-[#00cfff]/30 hover:bg-[#00cfff]/5 transition-all duration-200"
-            >
+            <a key={label} href={href} target="_blank" rel="noopener noreferrer" aria-label={label}
+              className="text-slate-400 hover:text-slate-900 transition-colors">
               {icon}
             </a>
           ))}
         </motion.div>
       </motion.div>
-
-      {/* Scroll indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 animate-scroll-bounce">
-        <p className="font-mono text-xs text-slate-600 tracking-widest">scroll</p>
-        <svg className="w-4 h-4 text-slate-600" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-          <path d="M19 9l-7 7-7-7" />
-        </svg>
-      </div>
     </section>
   )
 }

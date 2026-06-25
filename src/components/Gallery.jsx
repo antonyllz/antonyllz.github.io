@@ -4,25 +4,25 @@ import { motion, AnimatePresence, useInView } from 'framer-motion'
 const images = [
   {
     src: '/IMG_4852.jpeg',
-    title: 'Equinix SP4',
-    desc: 'SP3 — São Paulo, Brazil',
+    title: 'Equinix SP3',
+    desc: 'Santana de Parnaíba — São Paulo, Brazil',
     category: 'equinix',
   },
   {
     src: '/IMG_4853.jpeg',
     title: 'High-Security Corridor',
-    desc: 'Biometric access zone — Equinix SP4',
+    desc: 'Biometric access zone — Equinix SP3',
     category: 'equinix',
   },
   {
     src: '/IMG_4855.jpeg',
     title: 'Data Hall',
-    desc: 'Server rack rows with redundant power — Equinix SP4',
+    desc: 'Server rack rows with redundant power — Equinix',
     category: 'equinix',
   },
   {
     src: '/IMG_4950.jpeg',
-    title: 'Cirion SP3',
+    title: 'Cirion',
     desc: 'Carrier-grade data center — São Paulo, Brazil',
     category: 'cirion',
   },
@@ -34,14 +34,14 @@ const images = [
   },
   {
     src: '/IMG_2027.jpeg',
-    title: 'Ciena CLI Configuration',
+    title: 'Ciena Configuration',
     desc: 'SSH session — transceiver and link parameters',
     category: 'technical',
   },
   {
     src: '/IMG_1999.jpeg',
     title: 'Link Validation',
-    desc: 'JDSU MTS-8000 — signal quality verification on Ciena CMD42',
+    desc: 'JDSU MTS-8000 — circuit quality verification',
     category: 'technical',
   },
   {
@@ -53,7 +53,7 @@ const images = [
   {
     src: '/IMG_8631.jpeg',
     title: 'Fiber Infrastructure',
-    desc: 'Ciena rack — structured cabling and OTN patch management',
+    desc: 'Structured cabling and OTN patch management',
     category: 'technical',
   },
 ]
@@ -118,7 +118,7 @@ export default function Gallery() {
           transition={{ duration: 0.6 }}
           className="mb-10"
         >
-          <p className="font-mono text-[#00cfff] text-xs tracking-[0.3em] uppercase mb-3">Portfolio</p>
+          <p className="font-mono text-[#34d399] text-xs tracking-[0.3em] uppercase mb-3">Portfolio</p>
           <h2 className="text-4xl font-bold text-gradient-subtle mb-2">Field Work</h2>
           <p className="text-slate-500 max-w-lg">
             From the NOC to the datacenter floor — a visual log of projects, installations and operations.
@@ -138,8 +138,8 @@ export default function Gallery() {
               onClick={() => { setActive(cat); setSelected(null) }}
               className={`px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
                 active === cat
-                  ? 'bg-[#00cfff] text-black'
-                  : 'bg-white/5 text-slate-400 border border-white/8 hover:border-[#00cfff]/30 hover:text-white'
+                  ? 'bg-[#34d399] text-black'
+                  : 'bg-white/5 text-slate-400 border border-white/8 hover:border-[#34d399]/30 hover:text-white'
               }`}
             >
               {cat}
@@ -161,7 +161,7 @@ export default function Gallery() {
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.92 }}
                 transition={{ duration: 0.35, delay: i * 0.05 }}
-                className="relative group cursor-pointer rounded-xl overflow-hidden bg-slate-900 border border-white/5 hover:border-[#00cfff]/25 transition-colors duration-300"
+                className="relative group cursor-pointer rounded-xl overflow-hidden bg-slate-900 border border-white/5 hover:border-[#34d399]/25 transition-colors duration-300"
                 onClick={() => setSelected(i)}
               >
                 <div className="overflow-hidden aspect-[4/3]">

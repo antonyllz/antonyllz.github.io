@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from 'framer-motion'
 const links = [
   { label: 'About', href: '#about' },
   { label: 'Experience', href: '#experience' },
-  { label: 'Field Work', href: '#gallery' },
+  { label: 'Field Work', href: '#fieldwork' },
   { label: 'Education', href: '#education' },
 ]
 
@@ -37,7 +37,7 @@ export default function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false)
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 20)
+    const onScroll = () => setScrolled(window.scrollY > 40)
     window.addEventListener('scroll', onScroll)
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
@@ -51,10 +51,10 @@ export default function Navbar() {
     <motion.nav
       initial={{ y: -80, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
-      transition={{ duration: 0.6, ease: 'easeOut' }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
       className={`fixed top-0 inset-x-0 z-50 transition-all duration-300 ${
         scrolled
-          ? 'bg-[#04040c]/80 backdrop-blur-xl border-b border-white/5 shadow-lg shadow-black/20'
+          ? 'bg-white/90 backdrop-blur-lg border-b border-slate-200 shadow-sm'
           : 'bg-transparent'
       }`}
     >
@@ -62,9 +62,12 @@ export default function Navbar() {
         {/* Logo */}
         <button
           onClick={() => scrollTo('#home')}
-          className="font-mono text-sm text-accent tracking-wider hover:text-white transition-colors"
+          className="flex items-center gap-2"
         >
-          antony<span className="text-white/40">.</span>dev
+          <span className="w-8 h-8 rounded-lg bg-blue-600 flex items-center justify-center text-white text-xs font-black tracking-tight">
+            AA
+          </span>
+          <span className="text-slate-700 font-medium text-sm hidden sm:block">Antony Araújo</span>
         </button>
 
         {/* Desktop links */}
@@ -73,7 +76,7 @@ export default function Navbar() {
             <button
               key={l.href}
               onClick={() => scrollTo(l.href)}
-              className="text-sm text-slate-400 hover:text-white transition-colors font-medium tracking-wide"
+              className="text-sm text-slate-500 hover:text-slate-900 transition-colors font-medium"
             >
               {l.label}
             </button>
@@ -81,75 +84,49 @@ export default function Navbar() {
         </div>
 
         {/* Social icons */}
-        <div className="hidden md:flex items-center gap-4">
-          <a
-            href="https://github.com/antonyllz"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-slate-500 hover:text-white transition-colors"
-          >
+        <div className="hidden md:flex items-center gap-3">
+          <a href="https://github.com/antonyllz" target="_blank" rel="noopener noreferrer"
+            className="text-slate-400 hover:text-slate-900 transition-colors">
             <GitHubIcon />
           </a>
-          <a
-            href="https://www.linkedin.com/in/antonyqny/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-slate-500 hover:text-[#00cfff] transition-colors"
-          >
+          <a href="https://www.linkedin.com/in/antonyqny/" target="_blank" rel="noopener noreferrer"
+            className="text-slate-400 hover:text-blue-600 transition-colors">
             <LinkedInIcon />
           </a>
-          <a
-            href="https://x.com/anthonyllz"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="text-slate-500 hover:text-white transition-colors"
-          >
+          <a href="https://x.com/anthonyllz" target="_blank" rel="noopener noreferrer"
+            className="text-slate-400 hover:text-slate-900 transition-colors">
             <XIcon />
           </a>
         </div>
 
         {/* Mobile hamburger */}
-        <button
-          className="md:hidden flex flex-col gap-1.5 p-1"
-          onClick={() => setMenuOpen((v) => !v)}
-          aria-label="Toggle menu"
-        >
-          <span className={`block w-5 h-0.5 bg-slate-400 transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} />
-          <span className={`block w-5 h-0.5 bg-slate-400 transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
-          <span className={`block w-5 h-0.5 bg-slate-400 transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+        <button className="md:hidden flex flex-col gap-1.5 p-1" onClick={() => setMenuOpen(v => !v)}>
+          <span className={`block w-5 h-0.5 bg-slate-600 transition-all duration-300 ${menuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+          <span className={`block w-5 h-0.5 bg-slate-600 transition-all duration-300 ${menuOpen ? 'opacity-0' : ''}`} />
+          <span className={`block w-5 h-0.5 bg-slate-600 transition-all duration-300 ${menuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
         </button>
       </div>
 
-      {/* Mobile menu */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.25 }}
-            className="md:hidden overflow-hidden bg-[#04040c]/95 backdrop-blur-xl border-b border-white/5"
+            transition={{ duration: 0.2 }}
+            className="md:hidden overflow-hidden bg-white border-b border-slate-200"
           >
             <div className="px-6 pb-6 pt-2 flex flex-col gap-4">
-              {links.map((l) => (
-                <button
-                  key={l.href}
-                  onClick={() => scrollTo(l.href)}
-                  className="text-left text-slate-300 hover:text-white transition-colors py-1"
-                >
+              {links.map(l => (
+                <button key={l.href} onClick={() => scrollTo(l.href)}
+                  className="text-left text-slate-600 hover:text-slate-900 py-1 font-medium">
                   {l.label}
                 </button>
               ))}
-              <div className="flex gap-4 pt-2 border-t border-white/10">
-                <a href="https://github.com/antonyllz" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-white transition-colors">
-                  <GitHubIcon />
-                </a>
-                <a href="https://www.linkedin.com/in/antonyqny/" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-[#00cfff] transition-colors">
-                  <LinkedInIcon />
-                </a>
-                <a href="https://x.com/anthonyllz" target="_blank" rel="noopener noreferrer" className="text-slate-500 hover:text-white transition-colors">
-                  <XIcon />
-                </a>
+              <div className="flex gap-4 pt-2 border-t border-slate-100">
+                <a href="https://github.com/antonyllz" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-slate-900 transition-colors"><GitHubIcon /></a>
+                <a href="https://www.linkedin.com/in/antonyqny/" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-blue-600 transition-colors"><LinkedInIcon /></a>
+                <a href="https://x.com/anthonyllz" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-slate-900 transition-colors"><XIcon /></a>
               </div>
             </div>
           </motion.div>

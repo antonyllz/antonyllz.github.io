@@ -6,24 +6,24 @@ const experiences = [
     role: 'Network Engineer (Transmission)',
     company: 'Tely',
     period: 'Oct 2024 — Present',
-    desc: 'Design, commissioning and maintenance of DWDM optical links at major data centers. Working with Ciena 6500 and GeoMesh platforms, coordinating end-to-end circuit activation, performing OSNR and optical power measurements with test equipment.',
-    tags: ['DWDM', 'Ciena 6500', 'OTN', 'Equinix', 'Cirion'],
+    desc: 'Atuação em redes de transmissão óptica DWDM e backbone IP em ambientes Carrier e ISP. Responsável pelo comissionamento, ativação e manutenção de circuitos ópticos de alta capacidade, realizando medições de potência óptica, análise de OSNR e verificação de espectro.',
+    tags: ['DWDM', 'OTN', 'Backbone IP', 'Ciena'],
     current: true,
   },
   {
     role: 'Technical Operations Analyst',
     company: 'Tely',
     period: 'Apr 2024 — Oct 2024',
-    desc: 'Analysis and troubleshooting of optical network incidents, performance monitoring and capacity planning. Coordinated field teams for fiber restoration and equipment swaps, ensuring SLA compliance.',
-    tags: ['Troubleshooting', 'Performance', 'Fiber Optics', 'SLA'],
+    desc: 'Análise e resolução de incidentes em redes ópticas e IP, com troubleshooting de protocolos de roteamento como OSPF, BGP e MPLS. Monitoramento de performance, planejamento de capacidade e coordenação com equipes de campo para restauração de fibra e substituição de equipamentos, assegurando conformidade com SLAs.',
+    tags: ['OSPF', 'BGP', 'MPLS', 'N3 Support', 'Troubleshooting'],
     current: false,
   },
   {
     role: 'NOC Analyst',
     company: 'Tely',
     period: 'Nov 2023 — Apr 2024',
-    desc: 'Real-time monitoring of optical and IP networks, ticket management, incident escalation and coordination with field engineers. First point of contact for network fault detection.',
-    tags: ['Network Monitoring', 'Incident Response', 'NOC'],
+    desc: 'Monitoramento em tempo real de redes ópticas e IP, gestão de tickets, escalonamento de incidentes e coordenação com engenheiros de campo. Primeiro ponto de contato para detecção de falhas em ambientes de transmissão DWDM e backbone IP, com triagem e diagnóstico inicial de eventos de rede.',
+    tags: ['NOC', 'DWDM', 'Incident Response', 'Monitoramento'],
     current: false,
   },
 ]
@@ -35,36 +35,31 @@ function TimelineItem({ exp, index }) {
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, x: -30 }}
+      initial={{ opacity: 0, x: -24 }}
       animate={inView ? { opacity: 1, x: 0 } : {}}
-      transition={{ duration: 0.6, delay: index * 0.1, ease: 'easeOut' }}
-      className="relative pl-8 pb-12 last:pb-0"
+      transition={{ duration: 0.55, delay: index * 0.08 }}
+      className="relative pl-8 pb-10 last:pb-0"
     >
-      {/* Timeline dot */}
-      <div className="absolute left-0 top-1 w-3 h-3 rounded-full border-2 border-[#00cfff] bg-[#04040c] z-10">
-        {exp.current && (
-          <span className="absolute inset-0 rounded-full bg-[#00cfff]/40 animate-ping" />
-        )}
+      <div className={`absolute left-0 top-1.5 w-3 h-3 rounded-full border-2 z-10 ${
+        exp.current ? 'border-blue-600 bg-blue-600' : 'border-slate-300 bg-white'
+      }`}>
+        {exp.current && <span className="absolute inset-0 rounded-full bg-blue-400 animate-ping opacity-50" />}
       </div>
 
-      {/* Card */}
-      <div className="card-glass rounded-xl p-6 hover:border-[#00cfff]/20 transition-colors duration-300">
-        <div className="flex flex-wrap items-start justify-between gap-3 mb-3">
+      <div className="card-surface card-surface-hover rounded-xl p-5">
+        <div className="flex flex-wrap items-start justify-between gap-2 mb-3">
           <div>
-            <h3 className="text-lg font-semibold text-white">{exp.role}</h3>
-            <p className="text-[#00cfff] font-medium text-sm">{exp.company}</p>
+            <h3 className="text-base font-semibold text-slate-900">{exp.role}</h3>
+            <p className="text-blue-600 text-sm font-medium">{exp.company}</p>
           </div>
-          <span className="font-mono text-xs text-slate-500 bg-slate-800/50 px-3 py-1 rounded-full shrink-0">
+          <span className="text-xs text-slate-400 bg-slate-100 px-3 py-1 rounded-full shrink-0 font-medium">
             {exp.period}
           </span>
         </div>
-        <p className="text-slate-400 text-sm leading-relaxed mb-4">{exp.desc}</p>
-        <div className="flex flex-wrap gap-2">
-          {exp.tags.map((t) => (
-            <span
-              key={t}
-              className="text-xs font-mono px-2.5 py-1 rounded bg-white/5 text-slate-400 border border-white/8"
-            >
+        <p className="text-slate-500 text-sm leading-relaxed mb-3">{exp.desc}</p>
+        <div className="flex flex-wrap gap-1.5">
+          {exp.tags.map(t => (
+            <span key={t} className="text-xs px-2.5 py-1 rounded-md bg-blue-50 text-blue-700 font-medium">
               {t}
             </span>
           ))}
@@ -79,30 +74,27 @@ export default function Experience() {
   const inView = useInView(ref, { once: true, margin: '-80px' })
 
   return (
-    <section id="experience" className="py-32 px-6">
+    <section id="experience" className="py-28 px-6 bg-slate-50">
       <div className="max-w-3xl mx-auto">
         <motion.div
           ref={ref}
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 24 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="mb-14"
+          transition={{ duration: 0.55 }}
+          className="mb-12"
         >
-          <p className="font-mono text-[#00cfff] text-xs tracking-[0.3em] uppercase mb-3">Career</p>
-          <h2 className="text-4xl font-bold text-gradient-subtle">Professional Experience</h2>
+          <p className="text-blue-600 text-xs font-semibold tracking-widest uppercase mb-3">Career</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-slate-900">Professional Experience</h2>
         </motion.div>
 
-        {/* Timeline */}
         <div className="relative">
-          {/* Vertical line */}
           <motion.div
             initial={{ scaleY: 0 }}
             animate={inView ? { scaleY: 1 } : {}}
-            transition={{ duration: 1, delay: 0.2, ease: 'easeOut' }}
+            transition={{ duration: 1, delay: 0.15, ease: 'easeOut' }}
             style={{ originY: 0 }}
-            className="absolute left-[5px] top-2 bottom-0 w-px bg-gradient-to-b from-[#00cfff]/60 via-[#00cfff]/20 to-transparent"
+            className="absolute left-[5px] top-2 bottom-0 w-px bg-gradient-to-b from-blue-400 via-blue-200 to-transparent"
           />
-
           {experiences.map((exp, i) => (
             <TimelineItem key={exp.period} exp={exp} index={i} />
           ))}
