@@ -30,11 +30,6 @@ export default function About() {
                 alt="Antony Araújo"
                 className="relative w-72 h-72 md:w-80 md:h-80 object-cover rounded-2xl border border-white/10"
               />
-              {/* Status badge */}
-              <div className="absolute -bottom-4 -right-4 flex items-center gap-2 bg-[#0a0f1e] border border-[#00cfff]/20 rounded-full px-4 py-2 shadow-lg">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span className="text-xs font-mono text-slate-300">Available for opportunities</span>
-              </div>
             </div>
           </div>
 
@@ -52,9 +47,11 @@ export default function About() {
               <p>
                 I work at the core of digital infrastructure — configuring and maintaining DWDM optical
                 networks that carry terabits of data across São Paulo and beyond. As a Transmission
-                Specialist at Tely, I operate daily inside facilities like{' '}
-                <span className="text-slate-200 font-medium">Equinix SP4</span> and{' '}
-                <span className="text-slate-200 font-medium">Cirion SP3</span>.
+                Specialist at Tely, I operate inside major facilities including{' '}
+                <span className="text-slate-200 font-medium">Equinix</span>,{' '}
+                <span className="text-slate-200 font-medium">Cirion</span>,{' '}
+                <span className="text-slate-200 font-medium">Eletronet</span> and{' '}
+                <span className="text-slate-200 font-medium">Scala</span>.
               </p>
               <p>
                 My expertise spans the full lifecycle of optical links: from commissioning Ciena 6500

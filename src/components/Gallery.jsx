@@ -5,7 +5,7 @@ const images = [
   {
     src: '/IMG_4852.jpeg',
     title: 'Equinix SP4',
-    desc: 'Data center entrance — São Paulo, Brazil',
+    desc: 'SP3 — São Paulo, Brazil',
     category: 'equinix',
   },
   {
