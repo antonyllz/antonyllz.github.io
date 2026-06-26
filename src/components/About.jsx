@@ -46,26 +46,26 @@ export default function About() {
 
             <div className="space-y-4 text-slate-500 leading-relaxed mb-8 text-[15px]">
               <p>
-                Tenho 20 anos, sou natural de Recife-PE e trabalho atualmente como Engenheiro de Redes na{' '}
-                <span className="text-slate-800 font-medium">Tely</span>, especificamente no setor de transmissão.
+                I&apos;m 20 years old, originally from Recife-PE, and currently work as a Network Engineer at{' '}
+                <span className="text-slate-800 font-medium">Tely</span>, specifically in the transmission sector.
               </p>
               <p>
-                Profissional de Redes de Computadores com experiência em telecomunicações, atuando em redes
-                de transmissão óptica DWDM e operações de backbone IP. Experiência em comissionamento,
-                ativação e monitoramento de redes de transmissão, além de suporte N3 para ambientes Carrier e ISP.
+                Computer Networks professional with experience in telecommunications, working with DWDM optical
+                transmission networks and IP backbone operations. Experienced in commissioning, activation, and
+                monitoring of transmission networks, as well as N3 support for Carrier and ISP environments.
               </p>
               <p>
-                Trabalho com protocolos como{' '}
-                <span className="text-slate-800 font-medium">OSPF, BGP, MPLS, L2VPN, L3VPN e MPLS-TE</span>,
-                com experiência em equipamentos{' '}
-                <span className="text-slate-800 font-medium">Cisco, Huawei, Juniper, Extreme Networks e MikroTik</span>.
-                Certificado em tecnologias DWDM pela Padtec, com atuação em projetos, operação, manutenção
-                e comissionamento de sistemas ópticos de alta capacidade. Formado em Redes de Computadores pelo IFPB.
+                I work with protocols such as{' '}
+                <span className="text-slate-800 font-medium">OSPF, BGP, MPLS, L2VPN, L3VPN, and MPLS-TE</span>,
+                with experience on{' '}
+                <span className="text-slate-800 font-medium">Cisco, Huawei, Juniper, Extreme Networks, and MikroTik</span>{' '}
+                equipment. Certified in DWDM technologies by Padtec, with expertise in design, operation, maintenance,
+                and commissioning of high-capacity optical systems. Graduated in Computer Networks from IFPB.
               </p>
               <p>
-                Também tenho domínio em plataformas da{' '}
-                <span className="text-slate-800 font-medium">Ciena, Padtec, Infinera e Datacom</span>,
-                conhecendo suas soluções e aplicações em redes ópticas de alta capacidade.
+                I also have expertise in platforms from{' '}
+                <span className="text-slate-800 font-medium">Ciena, Padtec, Infinera, and Datacom</span>,
+                with knowledge of their solutions and applications in high-capacity optical networks.
               </p>
             </div>
 

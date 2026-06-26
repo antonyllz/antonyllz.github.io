@@ -81,15 +81,6 @@ export default function Hero() {
           <span className="text-blue-600">.</span>
         </motion.h1>
 
-        {/* Role */}
-        <motion.p
-          variants={item}
-          className="text-lg md:text-xl text-slate-500 font-light mb-3 max-w-xl leading-relaxed"
-        >
-          Transmission Specialist & Network Engineer working with
-          DWDM optical networks at major data centers across São Paulo.
-        </motion.p>
-
         {/* Tags */}
         <motion.div variants={item} className="flex flex-wrap gap-2 mb-10">
           {['DWDM', 'Optical Transmission', 'NOC', 'IP'].map(t => (
